@@ -202,6 +202,78 @@ body {
   background: var(--silver-chalice);
 }
 
+:is(.popular, .blog) .section-subtitle {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+:is(.popular, .blog) .section-title {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.popular-list,
+.blog-list {
+  display: grid;
+  gap: 30px;
+}
+
+.popular-card,
+.blog-card {
+  box-shadow: 0 10px 30px hsla(0, 0%, 0%, 0.1);
+  border-radius: var(--radius-6);
+  overflow: hidden;
+}
+
+:is(.popular, .blog) .card-banner {
+  position: relative;
+}
+
+.card-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: var(--mikado-yellow);
+  color: var(--white-1);
+  padding: 14px 10px;
+  border-radius: var(--radius-6);
+}
+
+.card-badge ion-icon {
+  --ionicon-stroke-width: 60px;
+  font-size: 20px;
+  margin-inline: auto;
+}
+
+.card-badge time {
+  font-weight: var(--fw-700);
+}
+
+:is(.popular, .blog) .card-content {
+  padding: 30px 15px;
+}
+
+.card-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+}
+
+:is(.popular, .blog) .card-title {
+  color: var(--granite-gray);
+  font-size: var(--fs-5);
+  margin-block: 20px;
+}
+
+:is(.popular, .blog) .card-title > a {
+  color: inherit;
+}
+
+:is(.popular, .blog) .card-title > a:is(:hover, :focus) {
+  color: var(--viridian-green);
+}
+
 /* ...header...  */
 .header {
   background: var(--viridian-green);
@@ -374,6 +446,37 @@ body {
   font-family: var(--ff-abril-fatface);
 }
 
+/* ... Popular..  */
+.popular-card :is(.card-price, .card-rating) {
+  color: var(--white-1);
+  font-size: var(--fs-8);
+  padding: 5px 8px;
+  border-radius: var(--radius-6);
+}
+
+.popular-card .card-price {
+  background: var(--viridian-green);
+}
+
+.popular-card .card-rating {
+  background: var(--mikado-yellow);
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.popular-card .card-rating ion-icon {
+  font-size: 17px;
+}
+
+.popular-card .card-rating data {
+  margin-left: 4px;
+}
+
+.popular-card .card-location {
+  color: var(--spanish-gray);
+}
+
 /* .....Responsiveness.....  */
 @media (min-width: 575px) {
   :root {
@@ -391,6 +494,11 @@ body {
   .container {
     max-width: 750px;
     margin-inline: auto;
+  }
+
+  .popular-list,
+  .blog-list {
+    grid-template-columns: 1fr 1fr;
   }
 
   .hero {
@@ -424,6 +532,11 @@ body {
 
   .container {
     max-width: 980px;
+  }
+
+  .popular-list,
+  .blog-list {
+    grid-template-columns: repeat(3, 1fr);
   }
 
   /* ..Header..  */
@@ -511,6 +624,10 @@ body {
 
   .container {
     max-width: 1150px;
+  }
+
+  :is(.popular, .blog) .card-content {
+    padding: 30px;
   }
 
   .navbar-list {
