@@ -163,6 +163,35 @@ body {
   --border-color: var(--viridian-green);
 }
 
+.section {
+  padding-block: var(--section-padding);
+}
+
+.section-subtitle {
+  font-family: var(--ff-comforter-brush);
+  color: var(--mikado-yellow);
+  font-size: var(--fs-3);
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.h2 {
+  color: var(--jet);
+  font-size: var(--fs-3);
+  font-weight: var(--fw-500);
+}
+
+.h3 {
+  font-size: var(--fs-4);
+  font-weight: var(--fw-400);
+}
+
+.section-title {
+  font-family: var(--ff-abril-fatface);
+}
+
 /* ...header...  */
 .header {
   background: var(--viridian-green);
@@ -236,12 +265,57 @@ body {
   border-color: var(--white-1);
 }
 
+/* ..hero..  */
+.shape {
+  display: none;
+}
+
+.hero {
+  background-repeat: no-repeat, no-repeat;
+  background-position: bottom left, top right;
+}
+
+.hero-content {
+  margin-bottom: 50px;
+}
+
+.hero .section-subtitle {
+  margin-bottom: 15px;
+}
+
+.hero-title {
+  color: var(--oxford-blue);
+  font-size: var(--fs-1);
+  font-family: var(--ff-abril-fatface);
+  font-weight: var(--fw-500);
+  line-height: 1.2;
+  max-width: 11ch;
+  margin-bottom: 15px;
+}
+
+.hero-text {
+  color: var(--black-coral);
+  font-size: var(--fs-7);
+  line-height: 1.7;
+  margin-bottom: 15px;
+}
+
+.btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
 /* .....Responsiveness.....  */
 @media (min-width: 575px) {
   :root {
     --fs-1: 5rem;
     --fs-3: 4rem;
     --fs-8: 1.4rem;
+  }
+
+  .hero-text {
+    --fs-7: 1.8rem;
   }
 }
 
@@ -250,12 +324,26 @@ body {
     max-width: 750px;
     margin-inline: auto;
   }
+
+  .hero {
+    min-height: 550px;
+    display: grid;
+    place-items: center;
+  }
+
+  .hero .container {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
 }
 
 @media (min-width: 992px) {
   :root {
     --fs-2: 3.5rem;
     --fs-3: 4.4rem;
+
+    --section-padding: 60px;
   }
 
   .container {
@@ -290,6 +378,48 @@ body {
   .navbar-link {
     font-weight: var(--fw-700);
     margin-bottom: 8px;
+  }
+
+  .hero {
+    position: relative;
+    min-height: 680px;
+  }
+
+  .hero-title,
+  .hero-text {
+    margin-bottom: 35px;
+  }
+
+  .shape {
+    display: block;
+    position: absolute;
+    animation: rotate 8s linear infinite;
+  }
+
+  .shape-1 {
+    top: 60px;
+    left: 47%;
+  }
+
+  .shape-2 {
+    top: 20%;
+    right: 50px;
+    animation-delay: 0.25s;
+  }
+
+  .shape-3 {
+    left: 40%;
+    bottom: 20%;
+    animation-delay: 0.5s;
+  }
+
+  @keyframes rotate {
+    0% {
+      transform: rotate(0);
+    }
+    100% {
+      transform: rotate(1turn);
+    }
   }
 }
 
